@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudin-ef. Gobeljić</title>
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=1959&format=png&color=000000" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://thumbs.dreamstime.com/b/floral-beautiful-green-yellow-symmetrical-repeating-pattern-textile-fabric-backgrounds-backdrops-wallpaper-surface-designs-122387968.jpg");
+            color: #333;
+            line-height: 1.6;
+        }
+
+        :root {
+            --primary-color: #0d47a1;
+            --secondary-color: #ffc107;
+            --text-color: #333;
+            --light-bg: #ffffff;
+            --dark-bg: #1c313a;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+        
+        .profile-image {
+            margin: 0 auto 20px auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--secondary-color);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.8); 
+            cursor: pointer; 
+        }
+
+        .mosque-image {
+            float: right; 
+            margin: 0 0 15px 25px; 
+            width: 200px;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .mosque-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .book-image {
+            float: right;
+            margin: 0 0 10px 20px;
+            width: 150px; /* Manja veličina za knjigu */
+            border: 1px solid var(--text-color);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #biografija::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        #kontakt::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .map-container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            max-width: 100%;
+            height: 300px;
+            clear: both;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 1.5px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        section {
+            background-color: var(--light-bg);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #e3f2fd;
+            color: var(--primary-color);
+        }
+
+       tr:hover {
+        background-color: #f1f8e9;
+    }
+    
+    #biografija table tr:hover {
+        background-color: #5d8fb8; 
+        cursor: pointer; 
+    }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#ffc107"/></svg>') no-repeat left 6px;
+            background-size: 8px;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            .mosque-image, .book-image {
+                float: none; 
+                margin: 15px auto; 
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead {
+                display: none;
+            }
+            tr {
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+            }
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 10px;
+                font-weight: bold;
+                text-align: left;
+                color: var(--primary-color);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="profile-image">
+        <a href="https://medzlistuzla.ba/hafiz-saudin-ef-gobeljic/" target="_blank" ><img src="https://yt3.googleusercontent.com/qEY0XM9_FyGeffHJmZ5nGrOZnmgwM1dCYr_AYLlFPCQ5eZSX4tsjMH_gpWN0Oq_Dgk69wiu4eQ=s900-c-k-c0x00ffffff-no-rj" alt="Portret dr. hafiza Saudina Gobeljića"></a> 
+        </div>
+        <h1>Dr. Hafiz Saudin-ef. Gobeljić</h1>
+        <p>Učenjak, Hafiz i Imam: Spajanje vjerskog i političkog znanja</p>
+    </header>
+
+    <div class="container">
+
+        <section id="biografija">
+            <h2>Biografija i Obrazovanje</h2>
+            <p>Rođen je <b>12. februara 1987. godine u Zvorniku</b> (Kula Grad). Njegov impresivan obrazovni put svjedoči o izuzetnoj posvećenosti vjerskom i svjetovnom znanju, uključujući diplome sa dva fakulteta, magistarski i doktorski rad, te titulu hafiza.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Godina</th>
+                        <th>Postignuće/Diploma</th>
+                        <th>Institucija</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Godina">2005.</td>
+                        <td data-label="Postignuće/Diploma">Završena <b>Behram-begova medresa</b></td>
+                        <td data-label="Institucija">Tuzla</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Godina">2009.</td>
+                        <td data-label="Postignuće/Diploma"><b>Diploma</b> na <b>Fakultetu islamskih nauka</b> (FIN)</td>
+                        <td data-label="Institucija">Sarajevo</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Godina">2011.</td>
+                        <td data-label="Postignuće/Diploma"><b>Diploma</b> na <b>Fakultetu političkih nauka</b> (FPN)</td>
+                        <td data-label="Institucija">Sarajevo (Odsjek za politologiju)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Godina">2013.</td>
+                        <td data-label="Postignuće/Diploma">Položen <b>Hifz</b></td>
+                        <td data-label="Institucija">Rijaset IZ u BiH</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Godina">2015.</td>
+                        <td data-label="Postignuće/Diploma"><b>Magisterij</b> (Magistar islamske teologije)</td>
+                        <td data-label="Institucija">FIN, Sarajevo</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Godina">2021.</td>
+                        <td data-label="Postignuće/Diploma"><b>Doktorat</b> (Doktor islamske teologije)</td>
+                        <td data-label="Institucija">FIN, Sarajevo</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Doktorska disertacija</h3>
+            
+            <div class="book-image">
+                 <a href="https://bbm.edu.ba/nova/wp-content/uploads/2023/01/kapija_7_2_gobeljic.pdf" target="_blank" ><img src="https://preporod.info/media/image/137147/original/486647604_964286099158430_587542558760509380_n.jpg" alt="Slika knjige"> </a> 
+            </div>
+            
+            <p>Doktorski rad, odbranjen 21. januara 2021. godine, nosi naslov:<br>
+            <b>“Klasična muslimanska teološka percepcija drugih religijskih tradicija”</b></p>
+            <p>Teza je iz oblasti Akaida i bavi se afirmisanjem <b>teologije religija</b>, istražujući klasične muslimanske stavove prema objavljenim i neobjavljenim religijskim tradicijama.</p>
+
+        </section>
+
+        <section id="angazman">
+            <h2>Radni Angažman i Porodica</h2>
+            <p>Dr. hafiz Saudin-ef. Gobeljić aktivno služi Islamskoj zajednici:</p>
+            <ul>
+                <li><b>2012. – 2013.:</b> Imam, hatib i muallim u džematu Plane, Medžlis Islamske zajednice (MIZ) Tuzla.</li>
+                <li><b>Od 2013. do danas:</b> <b>Imam, hatib i muallim</b> u džematu <b>Tušanj-Slatina (Amber-hatun džamija)</b>, MIZ Tuzla.</li>
+            </ul>
+            <p>U braku je sa <b>Zubejdom Gobeljić</b>, koja je profesorica u tuzlanskoj medresi i nosi titulu <b>kurra-hafize</b>, što njihov dom čini pravim izvorom učenja Kur'ana.</p>
+        </section>
+
+        <section id="predavanja">
+            <h2>Predavanja i Teme</h2>
+            <p>Hafiz Gobeljić je prepoznat kao plodan predavač, čija predavanja spajaju dubinsko poznavanje islamske teologije s analizom savremenih društvenih i psiholoških tema.</p>
+            
+            <h3>Istaknute teme:</h3>
+            <ul>
+                <li><b>Imunologija Duha:</b> O duhovnom stanju, važnosti ibadeta, sustezanju od prelaženja granica i izgradnji <b>bogobojaznosti (takvaluk)</b>.</li>
+                <li><b>Svijest o Allahu, dž.š.,</b> kao najdjelotvorniji lijek za sve probleme/dileme.</li>
+                <li><b>Principi liderstva – primjer Muhammeda, a.s.,</b> tema popularna među mladima.</li>
+                <li><b>Recept za uspjeh.</b></li>
+            </ul>
+
+            <h3>Službeni YouTube Kanal</h3>
+            <p>Na kanalu <b><a href="https://www.youtube.com/@Saudin-ef-Gobeljic" target="_blank">Saudin-ef. Gobeljic</a></b> možete pratiti najnovije <b>hutbe, predavanja, razgovore i teološke analize</b>. Sadržaj je fokusiran na duhovnu izgradnju, etiku, savremena društvena pitanja iz islamske perspektive i dubinsko tumačenje Kur'ana.</p>
+            
+            <h3>Ostali sadržaji:</h3>
+            <ul>
+                <li><a href="https://medzlistuzla.ba/" target="_blank">Medžlis Islamske zajednice Tuzla</a></li>
+            </ul>
+        </section>
+
+        <section id="kontakt">
+            <h2>Kontakt</h2>
+            
+            <div class="mosque-image">
+            <a href="https://www.google.com/maps/place/Amber-hatun+d%C5%BEamija+(Tu%C5%A1anjska+d%C5%BEamija)/@44.5437155,18.6626257,17z/data=!4m6!3m5!1s0x475ead001f7b3bb7:0x42916eb709134ad5!8m2!3d44.5437148!4d18.6644455!16s%2Fg%2F11ldvykkbs?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" target="blank" ><img src="dzamija.jpg" alt="Slika Amber-hatun džamije u Tuzli"> </a>
+            </div>
+            
+            <p>Za sva pitanja, najave događaja ili saradnju, molimo Vas da se obratite putem Medžlisa Islamske zajednice Tuzla ili direktno džematu:</p>
+            <p>
+            <a href="https://www.facebook.com/DzematAmberhatundzamije/?locale=hr_HR" target="_blank" ><b>Amber-hatun džamija, Tušanj-Slatina</b><br> </a>
+                Medžlis Islamske zajednice Tuzla<br>
+                Kontakt e-mail ili broj telefona
+            </p>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2807.514755106883!2d18.67916851556942!3d44.52445857910166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475f48356f937861%3A0xc66578a1f4961d15!2sAmber-hatun%20d%C5%BEamija!5e0!3m2!1sbs!2sba!4v1633454321285!5m2!1sbs!2sba" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    title="Lokacija Amber-hatun džamije na Google Maps">
+                </iframe>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2025. Dr. Hafiz Saudin-ef. Gobeljić. Sva prava zadržana.</p>
+    </footer>
+
+</body>
+</html>
